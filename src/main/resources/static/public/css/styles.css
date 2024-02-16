@@ -1,0 +1,13 @@
+:root {
+    --primary: #000066;
+    --secondary: #ffffff;
+}
+
+@font-face {
+    font-family: 'Copperplate';
+    src: url('/fonts/copperplate_gothic_bold_regular.ttf');
+}
+
+.logo-font {
+    font-family: 'Copperplate', Fallback, serif;
+}
