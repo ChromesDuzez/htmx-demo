@@ -44,6 +44,15 @@ public class InfiniteScroll {
             """;
 
     @Language("html")
+    final String tableHeaderHtml = """
+             <tr>
+                 <th>%s</th>
+                 <th>%s</th>
+                 <th>%s</th>
+             </tr>
+            """;
+
+    @Language("html")
     final String loadHtml = """
              <tr hx-get="/public/infinite-scroll/page/%d"
                  hx-trigger="revealed"
@@ -59,6 +68,10 @@ public class InfiniteScroll {
     public String nextPage(@PathVariable Integer id) {
 
         StringBuilder result = new StringBuilder();
+
+        if(id == 1) {
+            result.append( tableHeaderHtml.formatted("First Name", "Last Name", "Email") );
+        }
 
         List<Contact> demoContacts = Contact.randomContacts(9);
         for (Contact c : demoContacts) {
